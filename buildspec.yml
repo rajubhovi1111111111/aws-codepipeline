@@ -1,0 +1,20 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      java: openjdk8
+    commands:
+      - echo Installing dependencies...
+      - mvn install -DskipTests=true
+  build:
+    commands:
+      - echo Build started on `date`
+      - mvn package
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      - ls target
+artifacts:
+  files:
+    - target/*.jar
